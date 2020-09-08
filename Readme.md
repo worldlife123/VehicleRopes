@@ -5,7 +5,7 @@ This is a Squad mod that enables vehicle towing and helicopter sling loading usi
 
 To connect vehicles with ropes:
 
-1. Find attach points on towing-enabled vehicles. Attach points are marked with 3D icons of a green ammo icon.
+1. Find attach points on towing-enabled vehicles. Attach points are marked with 3D icons of a green or blue ammo icon. Note that blue icons indicates a heli sling attach point and will automatically attach rope when two such points come close.
 
 2. Approach attach points until you see a "Get Rope!" message. A rope will spawn between you and the attach point. Note that the rope length is 10m by default and you will lose your rope if your distance to the attach point exceeds the rope length.
 
@@ -24,10 +24,17 @@ To detach connected vehicle, just approach either attach point.
 - BP_SoldierHeldRope: A CableActor derived rope actor, just display a CableComponent between BP_RopeAttachPoint and the soldier pawn. This type of object will be attached to a soldier as owner with a TowingRopeComponent variable that stored the TowingRopeComponent that spawns it, and BP_RopeAttachPoint will search the triggered soldier's child actors to find another TowingRopeComponent.
 
 ### Maps
-Currently we've only created a test version on Jensens Range map. 
-
 Mapnames:
 - Jensens_Range_v2_ropes
+- Yehorivka_AAS_v2_ropes
 
 ## Usage
 Use AdminChangeMap [mapname] to play with Mobile Spawn Vehicles.
+
+## ChangeLog
+- 200908
+Improved RopePhysicsComponent: add momentum stiffness, use linear velocity at attach point.
+Add a special blueprint set for helicopters that enables auto attachment technique.
+Add a simple collision to the attached rope.
+Add "cut rope" function on helicopter radial menu.
+Add a rope breaking technique when rope length become too long. This is added in order to avoid helicopter loading heavy vehicles like IFVs and MBTs.
