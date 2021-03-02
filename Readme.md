@@ -1,5 +1,6 @@
 # VehicleRopes
 This is a Squad mod that enables vehicle towing and helicopter sling loading using a physics-base rope component. 
+Source code available at: https://github.com/worldlife123/VehicleRopes
 
 ## Description
 
@@ -29,12 +30,19 @@ Mapnames:
 - Yehorivka_AAS_v2_ropes
 
 ## Usage
-Use AdminChangeMap [mapname] to play with Mobile Spawn Vehicles.
+Use AdminChangeMap [mapname] to play with vehicle ropes.
 
 ## ChangeLog
 - 200908
-Improved RopePhysicsComponent: add momentum stiffness, use linear velocity at attach point.
-Add a special blueprint set for helicopters that enables auto attachment technique.
-Add a simple collision to the attached rope.
-Add "cut rope" function on helicopter radial menu.
-Add a rope breaking technique when rope length become too long. This is added in order to avoid helicopter loading heavy vehicles like IFVs and MBTs.
+    - Improved RopePhysicsComponent: add momentum stiffness, use linear velocity at attach point.
+    - Add a special blueprint set for helicopters that enables auto attachment technique.
+    - Add a simple collision to the attached rope.
+    - Add "cut rope" function on helicopter radial menu.
+    - Add a rope breaking technique when rope length become too long. This is added in order to avoid helicopter loading heavy vehicles like IFVs and MBTs.
+
+- 210302
+    - Update for v2.0
+    - Change icons on BP_RopeAttachPoint
+    - Removed collision on the attached rope due to performance issues.
+    - Due to data corruption, auto attachment technique for helicopters may have weird issues.
+    - Due to game update, after destroying the vehicle, the attached ropes may remain a few seconds before destroyed.
